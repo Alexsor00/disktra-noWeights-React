@@ -9,7 +9,6 @@ import Dijkstra from './algorithms/disktra_noWeight';
 
 function App() {
 
-
   class Node {
     constructor(row, col, value) {
       this.row = row;
@@ -17,7 +16,9 @@ function App() {
       this.value = value;
       this.visited = false;
       this.distance = 0;
-      this.style = { backgroundColor: 'gray' }
+      this.style = {
+        backgroundColor: 'gray'
+      }
     }
   }
   const matrix_creation = matrixCreator(25, 25);
@@ -34,7 +35,9 @@ function App() {
 
   function updateStyle(node) {
     if (node.prev) {
-      node.prev.style = { backgroundColor: 'green' };
+      node.prev.style = {
+        backgroundColor: 'green'
+      };
       updateStyle(node.prev);
     }
   }
@@ -64,16 +67,13 @@ function App() {
     updateStyle(lastNodePath)
 
     setMatrix(newMatrix)
-
-
-
   }
 
   return (
     <div className="App">
       <button onClick={handleClickAlgorithm}>Calcular cámino</button>
       <header className="App-header">
-        <Matrix matrix={matrix} setMatrix={setMatrix} setEndNode={setEndNode}/>
+        <Matrix matrix={matrix} setMatrix={setMatrix} setEndNode={setEndNode} />
       </header>
     </div>
   );
